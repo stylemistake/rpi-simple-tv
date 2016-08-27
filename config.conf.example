@@ -1,0 +1,38 @@
+#!/bin/bash
+
+## URL to your playlist.
+PLAYLIST_URL="http://localhost:8000/torrent-telik"
+# PLAYLIST_URL="http://<hostname>/playlist.m3u"
+# PLAYLIST_URL="file:///home/username/playlist.m3u"
+
+## Associative array of channels, where the "key" is the key pressed,
+## and the "value" is the value of the "tvg-name" annotation.
+## Here's an example of such annotation:
+##
+##    #EXTINF:-1 tvg-name="Foobar_TV",Foobar TV
+##
+declare -A CHANNELS=(
+    [1]='Первый_канал'
+    [2]='Россия_1'
+    [3]='НТВ'
+    [4]='Звезда'
+    [5]='Пятый_канал'
+    [6]='Россия_24'
+    [7]='РЕН_ТВ'
+    [8]='СТС'
+    [9]='Беларусь_24'
+)
+
+## Command to start the player.
+## Should take the stream URL as the last parameter
+alias player_start="omxplayer -o hdmi"
+# alias player_start="mplayer"
+
+## Command to stop the player.
+alias player_stop="killall -9 omxplayer.bin 2>/dev/null"
+# alias player_stop="killall -9 mplayer 2>/dev/null"
+
+## Command to check if player is still running.
+## Non-zero exit code should mean that player is not running.
+alias player_status="killall -0 omxplayer.bin 2>/dev/null"
+# alias player_status="killall -0 mplayer 2>/dev/null"
