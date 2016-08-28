@@ -44,9 +44,10 @@ _Note: Version numbers are just FYI._
 
 ## Setup
 
-First, setup the `aceproxy` server, which will provide an M3U playlist. If you
-want to use some other IPTV source, you can make your own (annotated) M3U
-playlist.
+Options for making an IPTV playlist:
+
+* Setup an `aceproxy` server, which can make an M3U with a ton of free channels;
+* Make your own (annotated) M3U playlist.
 
 This software expects the `tvg-name` annotation in playlist, which looks like this:
 
