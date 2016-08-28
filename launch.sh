@@ -51,7 +51,7 @@ get_channel() {
         fetch_playlist
     fi
     local line
-    line=$(grep -in "tvg-name=\"${CHANNELS[$1]}\"" ${PLAYLIST_FILE} | cut -d: -f1)
+    line=$(grep -in "tvg-name=\"${CHANNELS[$1]}\"" ${PLAYLIST_FILE} | cut -d: -f1 | head -1)
     if [[ -n ${line} ]]; then
         cat ${PLAYLIST_FILE} | sed -n $(( line + 1 ))p
     fi
